@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <th:block th:replace="common/layout :: link"></th:block>  
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <title>Nouvelle recette</title>
+    <style>
+        /*.main {
+            /*width: 100%;*/
+            /*background-color:blue;*/
+            /*text-align: center;*
+        }*/
+        .presentation {
+           /* width: 50%;*/
+            margin-top: 100px;
+           /* margin: auto;*/
+            margin-left: auto;
+            margin-right: auto;
+            color:rgb(212, 0, 255);
+            
+        }
+        .icon-like{
+            color:red;
+        }
+
+        .edtit-delete{
+            width: 150px;
+        }
+        .card-footer p{
+            margin-bottom: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div  th:replace="common/layout :: navbar"></div>
+    <div class="container mt-5">
+        <form>
+            <div class="form-group">
+              <label for="nomRecette">Nom recette : </label>
+              <input type="text" class="form-control" id="nomRecette">
+            </div>
+            <div class="form-group">
+              <label for="categorie">Catégorie</label>
+              <select class="form-control" id="categorie">
+                <option value="1">Catégorie1</option>
+                <option value="2">Catégorie2</option>
+                <option value="3">Catégorie3</option>
+                <option value="4">Catégorie4</option>
+                <option value="5">Catégorie5</option>
+              </select>
+            </div>
+            <div class="form-group">
+                <label for="typeCuisson">Type de cuisson : </label>
+                <input type="text" class="form-control" id="typeCuisson">
+            </div>
+            <div class="form-group">
+                <label for="tempsCuisson">Type de cuisson : </label>
+                <input type="text" class="form-control" id="tempsCuisson">
+            </div>
+            <!-- <div class="form-group">
+                <label for="ingredient">Ingrédient : </label>
+                <select multiple class="form-control" id="ingredient">
+                  <option value="1">Ingrédient1</option>
+                  <option value="2">Ingrédient2</option>
+                  <option value="3">Ingrédient3</option>
+                  <option value="4">Ingrédient4</option>
+                  <option value="5">Ingrédient5</option>
+                </select>
+            </div> -->
+            <div class="form-group">
+              <label for="description">Description : </label>
+              <textarea class="form-control" id="description" rows="10"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
+          </form>
+    </div>
+
+    </div>
+    <th:block th:replace="common/layout :: body/script"></th:block>
+</body>
+</html>

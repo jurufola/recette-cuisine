@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <th:block th:replace="common/layout :: link"></th:block>  
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <title>Nouvelle catégorie</title>
+    <style>
+        /*.main {
+            /*width: 100%;*/
+            /*background-color:blue;*/
+            /*text-align: center;*
+        }*/
+        .presentation {
+           /* width: 50%;*/
+            margin-top: 100px;
+           /* margin: auto;*/
+            margin-left: auto;
+            margin-right: auto;
+            color:rgb(212, 0, 255);
+            
+        }
+        .icon-like{
+            color:red;
+        }
+
+        .edtit-delete{
+            width: 150px;
+        }
+        .card-footer p{
+            margin-bottom: 0;
+        }
+
+        form {
+            width: 50%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div  th:replace="common/layout :: navbar"></div>
+    <div class="container mt-5">
+        <form >
+            <div class="form-group" >
+              <label for="nomCategorie">Nom catéorie : </label>
+              <input type="text" class="form-control" id="nomCategorie">
+            </div>
+            
+            <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
+          </form>
+    </div>
+
+    </div>
+    <th:block th:replace="common/layout :: body/script"></th:block>
+</body>
+</html>

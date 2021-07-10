@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <th:block th:replace="common/layout :: link"></th:block>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <title>Liste des ingrédients</title>
+    <style>
+        /*.main {
+            /*width: 100%;*/
+            /*background-color:blue;*/
+            /*text-align: center;*
+        }*/
+        .presentation {
+           /* width: 50%;*/
+            margin-top: 100px;
+           /* margin: auto;*/
+            margin-left: auto;
+            margin-right: auto;
+            color:rgb(212, 0, 255);
+
+        }
+        .icon-like{
+            color:red;
+        }
+        .card-footer p{
+            width: 50px;
+            margin-bottom: 0;
+            margin: auto;
+        }
+
+    </style>
+</head>
+<body>
+<div  th:replace="common/layout :: navbar"></div>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h5>Nom de l'ingrédient</h5>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Liste des ingrédients</h5>
+                    <p>
+                        Nom ingrédient : <span>Viande de mouton </span>
+                    </p>
+                    <p>
+                        Type ingrédient : <span>Viande</span>
+                    </p>
+                </div>
+                <div class="card-footer text-muted d-flex justify-content-between">
+                    <p class="edtit-delete d-flex justify-content-between">
+                        <a th:href="@{/edit-recette/{id}}"><i class="fas fa-edit icon-edit"></i></a>
+                        <a th:href="@{/delete-recette{id}}"><i class="fas fa-trash icon-delete"></i></a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h5>Nom de l'ingrédient</h5>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Liste des ingrédients</h5>
+                    <p>
+                        Nom ingrédient : <span>Viande de mouton </span>
+                    </p>
+                    <p>
+                        Type ingrédient : <span>Viande</span>
+                    </p>
+                </div>
+                <div class="card-footer text-muted d-flex justify-content-between">
+                    <p class="edtit-delete d-flex justify-content-between">
+                        <a th:href="@{/edit-recette/{id}}"><i class="fas fa-edit icon-edit"></i></a>
+                        <a th:href="@{/delete-recette{id}}"><i class="fas fa-trash icon-delete"></i></a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h5>Nom de l'ingrédiente</h5>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Liste des ingrédients</h5>
+                    <p>
+                        Nom ingrédient : <span>Viande de mouton </span>
+                    </p>
+                    <p>
+                        Type ingrédient : <span>Viande</span>
+                    </p>
+                </div>
+                <div class="card-footer text-muted d-flex justify-content-between">
+                    <p class="edtit-delete d-flex justify-content-between">
+                        <a th:href="@{/edit-recette/{id}}"><i class="fas fa-edit icon-edit"></i></a>
+                        <a th:href="@{/delete-recette{id}}"><i class="fas fa-trash icon-delete"></i></a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+<th:block th:replace="common/layout :: body/script"></th:block>
+</body>
+</html>

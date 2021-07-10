@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <title>Acceuil</title>
+
+</head>
+<body>
+<div class="container" th:fragment="navbar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" th:href="@{/index}">Mon site de recettes</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <!-- <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li> -->
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="recettesDropdown" role="button"
+                       data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        Recettes
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="recettesDropdown">
+                        <a class="dropdown-item" th:href="@{/recettes}">Liste des recettes</a>
+                        <a class="dropdown-item" th:href="@{/ajout-recette}">Ajouter une recette</a>
+                        <a class="dropdown-item" href="#">Supprimer une recette</a>
+                        <!-- <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a> -->
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Categories
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                        <a class="dropdown-item" th:href="@{/categories}">Liste des catégories</a>
+                        <a class="dropdown-item" th:href="@{/ajout-categorie}">Ajouter une catégorie</a>
+                        <a class="dropdown-item" href="#">Supprimer une catégorie</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="ingredientsDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ingrédients
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="ingredientsDropdown">
+                        <a class="dropdown-item" th:href="@{/ingredients}">Liste des ingrédients</a>
+                        <a class="dropdown-item" th:href="@{/ajout-ingredient}">Ajouter un ingrédient</a>
+                        <a class="dropdown-item" href="#">Supprimer un ingrédient</a>
+
+                    </div>
+                </li>
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="rechercher une recette" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
+            </form>
+        </div>
+    </nav>
+</div>
+<script type="text/javascript" th:src="@{/js/jquery-slim.min.js}"></script> <!-- Intégration jquery -->
+<script type="text/javascript" th:src="@{/js/popper.min.js}"></script> <!-- Intégration Popper -->
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script> <!-- Intégration Bootstrap.js -->
+</body>
+</html>

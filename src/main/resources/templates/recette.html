@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <th:block th:replace="common/layout :: link"></th:block>  
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <title>Recette</title>
+    <style>
+        /*.main {
+            /*width: 100%;*/
+            /*background-color:blue;*/
+            /*text-align: center;*
+        }*/
+        .presentation {
+           /* width: 50%;*/
+            margin-top: 100px;
+           /* margin: auto;*/
+            margin-left: auto;
+            margin-right: auto;
+            color:rgb(212, 0, 255);
+            
+        }
+        .icon-like{
+            color:red;
+        }
+
+        .edtit-delete{
+            width: 150px;
+        }
+        .card-footer p{
+            margin-bottom: 0;
+        }
+        .nouvel-ingredient {
+            width: 50%;
+            margin: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <div  th:replace="common/layout :: navbar"></div>
+    <div class="container my-5">
+               <div class="card text-center">
+                    <div class="card-header">
+                       <h5>Nom de la recette</h5> 
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Ingrédients</h5>
+                        <div class="row">
+                            <div class="col-6">
+                                <span id="quantite1">120g de </span>
+                                <span id="ingredient1">sucre</span>
+                            </div>
+                            <div class="col-6">
+                                <span id="quantite2">30g de </span>
+                                <span id="ingredient2">cannelle</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <span id="quantite3">120g de </span>
+                                <span id="ingredient3">sucre</span>
+                            </div>
+                            <div class="col-6">
+                                <span id="quantite4">30g de </span>
+                                <span id="ingredient4">cannelle</span>
+                            </div>
+                        </div>
+                        <form action="" class="nouvel-ingredient">
+                            <div class="form-group">
+                                <label for="ingredient">Nouvel Ingrédient : </label>
+                                <select class="form-control" id="ingredient">
+                                    <option value="1">Ingrédient1</option>
+                                    <option value="2">Ingrédient2</option>
+                                    <option value="3">Ingrédient3</option>
+                                    <option value="4">Ingrédient4</option>
+                                    <option value="5">Ingrédient5</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="quantite">Nom quantite : </label>
+                                <input type="text" class="form-control mb-2" id="quantite">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Ajouter</button>
+                        </form>
+                        
+
+                        <hr>
+                        <h5>Description</h5>
+                        <div class="description">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus beatae qui deserunt facilis fugit necessitatibus quam in iusto nihil molestias, iure minus reiciendis sint modi quisquam dignissimos repudiandae sit animi.
+                        </div>  
+                    </div>
+                    <div class="card-footer text-muted d-flex justify-content-between align-items-end">
+                        <p>
+                            cuisson : <span id="cuisson">50 min</span>
+                        </p>
+                        <p class="edtit-delete d-flex justify-content-between">
+                            <a th:href="@{/edit-recette/{id}}"><i class="fas fa-edit icon-edit"></i></a>
+                            <a th:href="@{/delete-recette{id}}"><i class="fas fa-trash icon-delete"></i></a>
+                        </p>
+                        <p>
+                            <a th:href="@{/like/{id}}"><i class="fas fa-heart icon-like"></i></a>
+                            &nbsp;<span id="like">2</span>
+                        </p>
+                        
+                    </div>
+                </div>
+    </div>
+
+    </div>
+    <th:block th:replace="common/layout :: body/script"></th:block>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <th:block th:replace="common/layout :: link"></th:block>
+    <title>Acceuil</title>
+    <style>
+        /*.main {
+            /*width: 100%;*/
+            /*background-color:blue;*/
+            /*text-align: center;*
+        }*/
+        .presentation {
+           /* width: 50%;*/
+            margin-top: 100px;
+           /* margin: auto;*/
+            margin-left: auto;
+            margin-right: auto;
+            color:rgb(212, 0, 255);
+            
+        }
+
+    </style>
+</head>
+<body>
+    <div  th:replace="common/layout :: navbar"></div>
+    <div class="container main">
+        <div class="presentation">
+
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor eius delectus optio at adipisci quasi sit necessitatibus quos magnam, temporibus vel ea quas veniam earum rem dolore quod? Animi, voluptate.
+        </div>
+
+    </div>
+    <th:block th:replace="common/layout :: body/script"></th:block>
+</body>
+</html>
