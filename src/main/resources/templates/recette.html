@@ -41,6 +41,7 @@
 <body>
     <div  th:replace="common/layout :: navbar"></div>
     <div class="container my-5">
+        <h4>La liste des recettes</h4>
                <div class="card text-center">
                     <div class="card-header">
                        <h5>Nom de la recette</h5> 
@@ -84,8 +85,14 @@
                             </div>
                             <button type="submit" class="btn btn-primary">Ajouter</button>
                         </form>
-                        
-
+                        <hr>
+                        <p>
+                            Catégorie : <span id="categorie">Nom de la catégorie</span>
+                        </p>
+                        <hr>
+                        <p>
+                            Type de cuisson : <span id="typeCuisson">Type de cuissson</span>
+                        </p>
                         <hr>
                         <h5>Description</h5>
                         <div class="description">

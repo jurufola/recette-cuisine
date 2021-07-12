@@ -35,8 +35,29 @@
 <body>
 <div  th:replace="common/layout :: navbar"></div>
 <div class="container mt-5">
+    <h4>La liste des ingrédients</h4>
     <div class="row">
-        <div class="col-md-4 mb-3">
+        <div th:each="ingredient : ${ingredients}" class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h5 th:text="${ingredient.nom}">Nom de l'ingrédient</h5>
+                </div>
+                <div class="card-body">
+                    
+                    <p>
+                        Type ingrédient : <span th:text="${ingredient.type}">Viande</span>
+                    </p>
+                </div>
+                <div class="card-footer text-muted d-flex justify-content-between">
+                    <p class="edtit-delete d-flex justify-content-between">
+                        <a th:href="@{/edit-ingredient/{id}(id=${ingredient.id})}"><i class="fas fa-edit icon-edit"></i></a>
+                        <a th:href="@{/delete-ingredient/{id}(id=${ingredient.id})}"><i class="fas fa-trash icon-delete"></i></a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col-md-4 mb-3">
             <div class="card">
                 <div class="card-header text-center">
                     <h5>Nom de l'ingrédient</h5>
@@ -58,8 +79,8 @@
 
                 </div>
             </div>
-        </div>
-        <div class="col-md-4 mb-3">
+        </div> -->
+        <!-- <div class="col-md-4 mb-3">
             <div class="card">
                 <div class="card-header text-center">
                     <h5>Nom de l'ingrédient</h5>
@@ -81,30 +102,7 @@
 
                 </div>
             </div>
-        </div>
-        <div class="col-md-4 mb-3">
-            <div class="card">
-                <div class="card-header text-center">
-                    <h5>Nom de l'ingrédiente</h5>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Liste des ingrédients</h5>
-                    <p>
-                        Nom ingrédient : <span>Viande de mouton </span>
-                    </p>
-                    <p>
-                        Type ingrédient : <span>Viande</span>
-                    </p>
-                </div>
-                <div class="card-footer text-muted d-flex justify-content-between">
-                    <p class="edtit-delete d-flex justify-content-between">
-                        <a th:href="@{/edit-recette/{id}}"><i class="fas fa-edit icon-edit"></i></a>
-                        <a th:href="@{/delete-recette{id}}"><i class="fas fa-trash icon-delete"></i></a>
-                    </p>
-
-                </div>
-            </div>
-        </div>
+        </div> -->
 
     </div>
 

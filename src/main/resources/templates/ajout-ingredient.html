@@ -41,14 +41,14 @@
 <body>
     <div  th:replace="common/layout :: navbar"></div>
     <div class="container mt-5">
-        <form >
+        <form action="#" th:action="@{/ajout-ingredient}" th:object="${ingredient}" method="post">
             <div class="form-group" >
-              <label for="nomIngredient">Nom ingédient : </label>
-              <input type="text" class="form-control" id="nomIngredient">
+              <label for="nomIngredient">Nom ingrédient : </label>
+              <input type="text" class="form-control" id="nomIngredient" th:field="${ingredient.nom}">
             </div>
             <div class="form-group" >
-              <label for="typeIngredient">Type ingédient : </label>
-              <input type="text" class="form-control" id="typeIngredient">
+              <label for="typeIngredient">Type ingrédient : </label>
+              <input type="text" class="form-control" id="typeIngredient" th:field="${ingredient.type}">
             </div>
             
             <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
