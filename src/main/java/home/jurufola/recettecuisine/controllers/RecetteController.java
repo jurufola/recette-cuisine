@@ -1,5 +1,6 @@
 package home.jurufola.recettecuisine.controllers;
 
+import home.jurufola.recettecuisine.entities.Categorie;
 import home.jurufola.recettecuisine.entities.Ingredient;
 import home.jurufola.recettecuisine.services.IngredientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * Controlleur Recette
+ * Classe Controller pour la gestion des Recettes
  * @author juruf_000
  */
 @Controller
@@ -43,20 +44,11 @@ public class RecetteController {
         return "ajout-recette";
     }
 
-    @GetMapping("categories")
-    public String getCategories() {
-        return "categories";
-    }
-
-    @GetMapping("ajout-categorie")
-    public String getAddCategorieForm() {
-        return "ajout-categorie";
-    }
 
     /**
      * Retourne la page qui affiche la liste des ingredients
      * @param model Le modèle pour la vue
-     * @return page ingredients
+     * @return page 'ingredients.html'
      */
     @GetMapping("ingredients")
     public String getIngredients(Model model) {
@@ -71,7 +63,7 @@ public class RecetteController {
     /**
      * Permet d'afficher le formulaire pour ajouter un ingrédient
      * @param model Le modèle pour la vue
-     * @return page ajout-ingredient
+     * @return page 'ajout-ingredient.html'
      */
     @GetMapping("ajout-ingredient")
     public String getAddIngredientForm(Model model) {
@@ -83,7 +75,7 @@ public class RecetteController {
      * Permet d'ajouter un ingrédient dans la base
      * @param ingredient L'ingredient à ajouter
      * @param model Le modèle pour la vue
-     * @return La page 'liste de tous les ingrédients'
+     * @return La page 'ingredeints.html'
      */
     @PostMapping("ajout-ingredient")
     public String addIngredient(@ModelAttribute Ingredient ingredient, Model model) {
@@ -97,7 +89,7 @@ public class RecetteController {
      * Supprimer un ingrédient
      * @param model Le modèle de la vue
      * @param id
-     * @return La page 'liste de tous les ingrédients'
+     * @return La page 'ingredeints.html'
      */
     @GetMapping("delete-ingredient/{id}")
     public String deleteIngredient(Model model,@PathVariable("id") Long id) {

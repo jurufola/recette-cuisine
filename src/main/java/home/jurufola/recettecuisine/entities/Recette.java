@@ -13,6 +13,9 @@ public class Recette {
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "nom")
+    private String nom;
+
     @ManyToOne
     @JoinColumn(name = "categorie_id")
     private Categorie categorie;
@@ -171,6 +174,27 @@ public class Recette {
         this.nbLikes = nbLikes;
     }
 
+    /**
+     * Getter nom
+     * @return Le nom de la recette
+     */
+    public String getNom() {
+        return nom;
+    }
+
+    /**
+     * Setter nom
+     * @param nom Le nom de la recette
+     */
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    /**
+     * Redéfinition de toString()
+     * @return Répeérentation en chaîne de caractères de la recette
+     */
+
     @Override
     public String toString() {
         return "Recette{" +
@@ -183,4 +207,5 @@ public class Recette {
                 ", nbLikes=" + nbLikes +
                 '}';
     }
+
 }

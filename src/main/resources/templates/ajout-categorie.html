@@ -41,10 +41,10 @@
 <body>
     <div  th:replace="common/layout :: navbar"></div>
     <div class="container mt-5">
-        <form >
+        <form action="#" th:action="@{/ajout-categorie}" th:object="${categorie}" method="post">
             <div class="form-group" >
               <label for="nomCategorie">Nom catéorie : </label>
-              <input type="text" class="form-control" id="nomCategorie">
+              <input type="text" class="form-control" id="nomCategorie" th:field="*{nom}">
             </div>
             
             <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
