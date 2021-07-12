@@ -17,7 +17,7 @@ public class CategorieService {
     CategorieRepository categorieRepository;
 
     /**
-     * Méthode de service pour recuperer toutes les catégories
+     * Méthode de service pour récuperer toutes les catégories
      * @return La liste des catégories
      */
     public List<Categorie> getCategories() {

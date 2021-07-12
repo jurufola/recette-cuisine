@@ -28,6 +28,10 @@
             margin-bottom: 0;
         }
 
+        li {
+            text-align: start;
+        }
+
     </style>
 </head>
 <body>
@@ -66,143 +70,16 @@
                                                 <span th:case="'0'"></span>
                                                 <span th:case="*" th:text="${recette.nbLikes}"></span>
                                              </span>
-                                         </p>
-                                         
+                                         </p> 
                                      </div>
                                  </div>
                             </div> 
-                            <!-- <div class="col-md-4 mb-3">
-                                <div class="card text-center">
-                                     <div class="card-header">
-                                        <h5>Nom de la recette</h5> 
-                                     </div>
-                                     <div class="card-body">
-                                         <h5 class="card-title">Liste des ingrédients</h5>
-                                         <p class="card-text">Ingrédients: ingrédient 1, ingrédient 2, ......</p>
-                                         <a th:href="@{/recette/1}" class="btn btn-primary">Voir la recette</a>
-                                     </div>
-                                     <div class="card-footer text-muted d-flex justify-content-between">
-                                         <p>
-                                             cuisson : <span id="cuisson">50 min</span>
-                                         </p>
-                                         <p>
-                                             <a th:href="@{/like/{id}}"><i class="fas fa-heart icon-like"></i></a>
-                                             &nbsp;<span id="like">2</span>
-                                         </p>
-                                         
-                                     </div>
-                                 </div>
-                            </div>  -->
-                            <!-- <div class="col-md-4 mb-3">
-                                <div class="card text-center">
-                                     <div class="card-header">
-                                        <h5>Nom de la recette</h5> 
-                                     </div>
-                                     <div class="card-body">
-                                         <h5 class="card-title">Liste des ingrédients</h5>
-                                         <p class="card-text">Ingrédients: ingrédient 1, ingrédient 2, ......</p>
-                                         <a th:href="@{/recette/1}" class="btn btn-primary">Voir la recette</a>
-                                     </div>
-                                     <div class="card-footer text-muted d-flex justify-content-between">
-                                         <p>
-                                             cuisson : <span id="cuisson">50 min</span>
-                                         </p>
-                                         <p>
-                                             <a th:href="@{/like/{id}}"><i class="fas fa-heart icon-like"></i></a>
-                                             &nbsp;<span id="like">2</span>
-                                         </p>
-                                         
-                                     </div>
-                                 </div>
-                            </div>  -->
                         </div>
                     </div>
                     
                 </div>
            </div> 
         </div>
-        <!-- <div class="row mb-5">
-           <div class="col-12 mb-3">
-               <div class="card text-center">
-                    <div class="card-header">
-                       <h5>Nom de la catégorie</h5> 
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-4 mb-3">
-                                <div class="card text-center">
-                                     <div class="card-header">
-                                        <h5>Nom de la recette</h5> 
-                                     </div>
-                                     <div class="card-body">
-                                         <h5 class="card-title">Liste des ingrédients</h5>
-                                         <p class="card-text">Ingrédients: ingrédient 1, ingrédient 2, ......</p>
-                                         <a th:href="@{/recette/1}" class="btn btn-primary">Voir la recette</a>
-                                     </div>
-                                     <div class="card-footer text-muted d-flex justify-content-between">
-                                         <p>
-                                             cuisson : <span id="cuisson">50 min</span>
-                                         </p>
-                                         <p>
-                                             <a th:href="@{/like/{id}}"><i class="fas fa-heart icon-like"></i></a>
-                                             &nbsp;<span id="like">2</span>
-                                         </p>
-                                         
-                                     </div>
-                                 </div>
-                            </div> 
-                            <div class="col-md-4 mb-3">
-                                <div class="card text-center">
-                                     <div class="card-header">
-                                        <h5>Nom de la recette</h5> 
-                                     </div>
-                                     <div class="card-body">
-                                         <h5 class="card-title">Liste des ingrédients</h5>
-                                         <p class="card-text">Ingrédients: ingrédient 1, ingrédient 2, ......</p>
-                                         <a th:href="@{/recette/1}" class="btn btn-primary">Voir la recette</a>
-                                     </div>
-                                     <div class="card-footer text-muted d-flex justify-content-between">
-                                         <p>
-                                             cuisson : <span id="cuisson">50 min</span>
-                                         </p>
-                                         <p>
-                                             <a th:href="@{/like/{id}}"><i class="fas fa-heart icon-like"></i></a>
-                                             &nbsp;<span id="like">2</span>
-                                         </p>
-                                         
-                                     </div>
-                                 </div>
-                            </div> 
-                            <div class="col-md-4 mb-3">
-                                <div class="card text-center">
-                                     <div class="card-header">
-                                        <h5>Nom de la recette</h5> 
-                                     </div>
-                                     <div class="card-body">
-                                         <h5 class="card-title">Liste des ingrédients</h5>
-                                         <p class="card-text">Ingrédients: ingrédient 1, ingrédient 2, ......</p>
-                                         <a th:href="@{/recette/1}" class="btn btn-primary">Voir la recette</a>
-                                     </div>
-                                     <div class="card-footer text-muted d-flex justify-content-between">
-                                         <p>
-                                             cuisson : <span id="cuisson">50 min</span>
-                                         </p>
-                                         <p>
-                                             <a th:href="@{/like/{id}}"><i class="fas fa-heart icon-like"></i></a>
-                                             &nbsp;<span id="like">2</span>
-                                         </p>
-                                         
-                                     </div>
-                                 </div>
-                            </div> 
-                        </div>
-                    </div>
-           </div> 
-            
-        </div>
-        
-          </div> -->
-
     </div>
     <th:block th:replace="common/layout :: body/script"></th:block>
 </body>
