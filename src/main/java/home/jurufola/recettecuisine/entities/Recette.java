@@ -37,6 +37,9 @@ public class Recette {
     @Column(name = "nb_likes", columnDefinition = "integer default 0")
     private int nbLikes;
 
+    @OneToMany(mappedBy = "recette")
+    private Set<RecetteIngredient> recetteIngredients = new HashSet<>();
+
     /**
      * Constructeur
      * @param categorie La catégorie à laquelle appartient la recette
@@ -190,6 +193,37 @@ public class Recette {
         this.nom = nom;
     }
 
+    /**
+     * Getter recetteIngredients
+     * @return La liste de recetteIngredients
+     */
+    public Set<RecetteIngredient> getRecetteIngredients() {
+        return recetteIngredients;
+    }
+
+    /**
+     * Setter recetteIngredient
+     * @param recetteIngredients La liste de recetteIngredients
+     */
+    public void setRecetteIngredients(Set<RecetteIngredient> recetteIngredients) {
+        this.recetteIngredients = recetteIngredients;
+    }
+
+    /**
+     * Ajout nouvel ingrédient dans la recette
+     * @param ingredient L'ingredient
+     */
+    public void addIngredient(Ingredient ingredient) {
+        this.ingredients.add(ingredient);
+    }
+
+    /**
+     * Rajout nouvel enregistrement table pivot
+     * @param recetteIngredient enregistrement à rajouter
+     */
+    public void setRecetteIngredient(RecetteIngredient recetteIngredient) {
+        this.recetteIngredients.add(recetteIngredient);
+    }
     /**
      * Redéfinition de toString()
      * @return Répeérentation en chaîne de caractères de la recette

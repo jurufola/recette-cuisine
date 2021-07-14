@@ -29,6 +29,9 @@ public class Ingredient {
     )
     private Set<Recette> recettes = new HashSet<>();
 
+    @OneToMany(mappedBy = "ingredient")
+    private Set<RecetteIngredient> recetteIngredients = new HashSet<>();
+
     /**
      * Constructeur
      * @param type Le type d'ingrédient
@@ -109,6 +112,38 @@ public class Ingredient {
      */
     public void setRecettes(Set<Recette> recettes) {
         this.recettes = recettes;
+    }
+
+    /**
+     * Ajoute une  recette à la liste des recettes qui utilisent l'ingredient
+     * @param recette La recette à rajouter
+     */
+    public void addRecette(Recette recette) {
+        this.recettes.add(recette);
+    }
+
+    /**
+     * Getter recetteIngredients
+     * @return La liste de recetteIngredients
+     */
+    public Set<RecetteIngredient> getRecetteIngredients() {
+        return recetteIngredients;
+    }
+
+    /**
+     * Setter recetteIngredient
+     * @param recetteIngredients La liste de recetteIngredients
+     */
+    public void setRecetteIngredients(Set<RecetteIngredient> recetteIngredients) {
+        this.recetteIngredients = recetteIngredients;
+    }
+
+    /**
+     * Rajout nouvel enregistrement table pivot
+     * @param recetteIngredient enregistrement à rajouter
+     */
+    public void setRecetteIngredient(RecetteIngredient recetteIngredient) {
+        this.recetteIngredients.add(recetteIngredient);
     }
 
     @Override
