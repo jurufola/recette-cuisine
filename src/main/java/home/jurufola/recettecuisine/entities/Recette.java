@@ -226,7 +226,7 @@ public class Recette {
     }
     /**
      * Redéfinition de toString()
-     * @return Répeérentation en chaîne de caractères de la recette
+     * @return Réprérentation en chaîne de caractères de la recette
      */
 
     @Override

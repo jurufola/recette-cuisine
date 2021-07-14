@@ -49,16 +49,16 @@
                     <div class="card-body">
                         <h5 class="card-title">Ingrédients</h5>
                         <div class="row">
-                            <div class="col-6">
-                                <span id="quantite1">120g de </span>
-                                <span id="ingredient1">sucre</span>
+                            <div class="col-6" th:each="recIng : ${recette.recetteIngredients}">
+                                <span th:text="${recIng.ingredient.nom}">sucre</span>
+                                <span  th:text="'(' + ${recIng.quantite} + ')'">120g de </span>
                             </div>
-                            <div class="col-6">
+                            <!-- <div class="col-6">
                                 <span id="quantite2">30g de </span>
                                 <span id="ingredient2">cannelle</span>
-                            </div>
+                            </div> -->
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-6">
                                 <span id="quantite3">120g de </span>
                                 <span id="ingredient3">sucre</span>
@@ -67,7 +67,7 @@
                                 <span id="quantite4">30g de </span>
                                 <span id="ingredient4">cannelle</span>
                             </div>
-                        </div>
+                        </div> -->
                         <form action="#" class="nouvel-ingredient" th:action="@{/ajout-ingredient-recette}" th:object="${recetteIngredient}" method="post">
                             <div class="form-group">
                                 
@@ -86,21 +86,21 @@
                         </form>
                         <hr>
                         <p>
-                            Catégorie : <span id="categorie">Nom de la catégorie</span>
+                            Catégorie : <span id="categorie" th:text="${recette.categorie.nom}">Nom de la catégorie</span>
                         </p>
                         <hr>
                         <p>
-                            Type de cuisson : <span id="typeCuisson">Type de cuissson</span>
+                            Type de cuisson : <span id="typeCuisson" th:text="${recette.typeCuisson}">Type de cuissson</span>
                         </p>
                         <hr>
                         <h5>Description</h5>
-                        <div class="description">
+                        <div class="description" th:text="${recette.description}">
                             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus beatae qui deserunt facilis fugit necessitatibus quam in iusto nihil molestias, iure minus reiciendis sint modi quisquam dignissimos repudiandae sit animi.
                         </div>  
                     </div>
                     <div class="card-footer text-muted d-flex justify-content-between align-items-end">
                         <p>
-                            cuisson : <span id="cuisson">50 min</span>
+                            cuisson : <span id="tempsCuisson" th:text="${recette.tempsCuisson}">Temps de cuissson</span><!-- <span id="cuisson" th:text="${recette.tempsCuisson">50 min</span> -->
                         </p>
                         <p class="edtit-delete d-flex justify-content-between">
                             <a th:href="@{/edit-recette/{id}}"><i class="fas fa-edit icon-edit"></i></a>
@@ -108,7 +108,11 @@
                         </p>
                         <p>
                             <a th:href="@{/like/{id}}"><i class="fas fa-heart icon-like"></i></a>
-                            &nbsp;<span id="like">2</span>
+                            &nbsp;
+                            <span id="like" th:switch="${recette.nbLikes}">
+                                <span th:case="'0'"></span>
+                                <span th:case="*" th:text="${recette.nbLikes}"></span>
+                             </span>
                         </p>
                         
                     </div>
