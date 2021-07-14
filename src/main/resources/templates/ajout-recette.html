@@ -37,42 +37,28 @@
 <body>
     <div  th:replace="common/layout :: navbar"></div>
     <div class="container mt-5">
-        <form>
+        <form action="#" th:action="@{/ajout-recette}" th:object="${recette}" method="post">
             <div class="form-group">
               <label for="nomRecette">Nom recette : </label>
-              <input type="text" class="form-control" id="nomRecette">
+              <input type="text" class="form-control" id="nomRecette" th:field="${recette.nom}">
             </div>
             <div class="form-group">
               <label for="categorie">Catégorie</label>
-              <select class="form-control" id="categorie">
-                <option value="1">Catégorie1</option>
-                <option value="2">Catégorie2</option>
-                <option value="3">Catégorie3</option>
-                <option value="4">Catégorie4</option>
-                <option value="5">Catégorie5</option>
+              <select class="form-control" id="categorie" th:field="${recette.categorie}">
+                <option th:each="cat : ${listCategorie}" th:value="${cat.id}" th:text="${cat.nom}"></option> 
               </select>
             </div>
             <div class="form-group">
                 <label for="typeCuisson">Type de cuisson : </label>
-                <input type="text" class="form-control" id="typeCuisson">
+                <input type="text" class="form-control" id="typeCuisson" th:field="${recette.typeCuisson}">
             </div>
             <div class="form-group">
-                <label for="tempsCuisson">Type de cuisson : </label>
-                <input type="text" class="form-control" id="tempsCuisson">
+                <label for="tempsCuisson">Temps de cuisson : </label>
+                <input type="time" class="form-control" id="tempsCuisson"th:field="${recette.tempsCuisson}" >
             </div>
-            <!-- <div class="form-group">
-                <label for="ingredient">Ingrédient : </label>
-                <select multiple class="form-control" id="ingredient">
-                  <option value="1">Ingrédient1</option>
-                  <option value="2">Ingrédient2</option>
-                  <option value="3">Ingrédient3</option>
-                  <option value="4">Ingrédient4</option>
-                  <option value="5">Ingrédient5</option>
-                </select>
-            </div> -->
             <div class="form-group">
               <label for="description">Description : </label>
-              <textarea class="form-control" id="description" rows="10"></textarea>
+              <textarea class="form-control" id="description" rows="10" th:field="${recette.description}"></textarea>
             </div>
             <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
           </form>

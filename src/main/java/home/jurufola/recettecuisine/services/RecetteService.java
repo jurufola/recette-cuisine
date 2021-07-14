@@ -3,7 +3,6 @@ package home.jurufola.recettecuisine.services;
 import home.jurufola.recettecuisine.entities.Recette;
 import home.jurufola.recettecuisine.repositories.CategorieRepository;
 import home.jurufola.recettecuisine.repositories.RecetteRepository;
-import org.graalvm.compiler.lir.alloc.lsra.LinearScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,7 +41,7 @@ public class RecetteService {
      */
     public String addRecette(Recette recette) {
         recetteRepository.save(recette);
-        return "La recette " + recette + " a été rajoutée à la base";
+        return "La recette " + " a été rajoutée à la base";
     }
 
     /**
@@ -54,4 +53,5 @@ public class RecetteService {
         recetteRepository.delete(recette);
         return "La recette " + recette + " a été supprimée de la base";
     }
+
 }

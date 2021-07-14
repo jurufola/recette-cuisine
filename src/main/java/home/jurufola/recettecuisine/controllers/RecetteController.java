@@ -2,7 +2,10 @@ package home.jurufola.recettecuisine.controllers;
 
 import home.jurufola.recettecuisine.entities.Categorie;
 import home.jurufola.recettecuisine.entities.Ingredient;
+import home.jurufola.recettecuisine.entities.Recette;
+import home.jurufola.recettecuisine.services.CategorieService;
 import home.jurufola.recettecuisine.services.IngredientService;
+import home.jurufola.recettecuisine.services.RecetteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +21,11 @@ import java.util.List;
 public class RecetteController {
 
     @Autowired
-    IngredientService ingredientService; // Injection dépendance IngredientService
+    RecetteService recetteService; // Injection dépendance RecetteService
+    @Autowired
+    CategorieService categorieService; // Injection dépendance CategorieService
+    @Autowired
+    IngredientService ingredientService; // Injection dépendance ingredientService
     @GetMapping("layout")
     public String getLayout(){
         return "common/layout";
@@ -29,74 +36,72 @@ public class RecetteController {
         return "index";
     }
 
+    /**
+     * Permet d'afficher la liste de toutes les recettes
+     * @param model Le modèle à passer à la vue
+     * @return La page 'recettes.html'
+     */
     @GetMapping("recettes")
-    public String getRecettes(){
+    public String getRecettes(Model model){
+        List<Recette> recettes = recetteService.getRecettes();
+        model.addAttribute("recettes", recettes);
         return "recettes";
     }
 
+    /**
+     * Permert d'afficher une recette
+     * @param id L'identifiant de la recette
+     * @param model Le modèle à passer à la vue
+     * @return La page 'recette.html'
+     */
     @GetMapping("recette/{id}")
-    public String getRecette(@PathVariable Long id){
+    public String getRecette(@PathVariable("id") Long id, Model model){
+        Recette recette = recetteService.getRecette(id);
+        List<Ingredient> ingredients = ingredientService.getIngredients();
+        model.addAttribute("recette", recette);
+        model.addAttribute("ingredients", ingredients);
+        model.addAttribute("ingredient", new Ingredient());
+       // model.addAttribute("quantite", "");
         return "recette";
     }
 
+    /**
+     * Permet d'afficher le formulaire pour ajouter une recette
+     * @param model Le modèle à passer à la vue
+     * @return page 'ajout-recette.html'
+     */
     @GetMapping("ajout-recette")
-    public String getAddRecetteForm() {
+    public String getAddRecetteForm(Model model) {
+        model.addAttribute("recette", new Recette());
+        model.addAttribute("listCategorie", categorieService.getCategories());
         return "ajout-recette";
     }
 
-
     /**
-     * Retourne la page qui affiche la liste des ingredients
-     * @param model Le modèle pour la vue
-     * @return page 'ingredients.html'
+     * Permet d'ajouter une recette en base
+     * @param recette La recette à ajouter
+     * @param model Le modèle à passer à la vue
+     * @return La page 'recettes.html'
      */
-    @GetMapping("ingredients")
-    public String getIngredients(Model model) {
-        List<Ingredient> ingredients = ingredientService.getIngredients();
-        model.addAttribute("ingredients", ingredients);
-        for (Ingredient ingredient : ingredients) {
-            System.out.println(ingredient);
-        }
-        return "ingredients";
+    @PostMapping("ajout-recette")
+    public String addRecette(@ModelAttribute Recette recette, Model model) {
+        System.out.println(recette.getCategorie());
+        recetteService.addRecette(recette);
+        List<Recette> recettes = recetteService.getRecettes();
+        model.addAttribute("recettes", recettes);
+        return "recettes";
     }
 
-    /**
-     * Permet d'afficher le formulaire pour ajouter un ingrédient
-     * @param model Le modèle pour la vue
-     * @return page 'ajout-ingredient.html'
-     */
-    @GetMapping("ajout-ingredient")
-    public String getAddIngredientForm(Model model) {
-        model.addAttribute("ingredient", new Ingredient());
-        return "ajout-ingredient";
+    @PostMapping("ajout-ingredient-recette/{id}/{quantite}")
+    public String AddIngredientToRecette(@PathVariable("id") Long id,
+                                         @ModelAttribute("ingredient") Ingredient ingredient,
+                                         @PathVariable("quantite") String quantite, Model model) {
+        System.out.println(ingredient);
+        System.out.println("contenu quantite" + quantite);
+        List<Recette> recettes = recetteService.getRecettes();
+        model.addAttribute("recettes", recettes);
+        return "recettes";
     }
 
-    /**
-     * Permet d'ajouter un ingrédient dans la base
-     * @param ingredient L'ingredient à ajouter
-     * @param model Le modèle pour la vue
-     * @return La page 'ingredeints.html'
-     */
-    @PostMapping("ajout-ingredient")
-    public String addIngredient(@ModelAttribute Ingredient ingredient, Model model) {
-        System.out.println(ingredientService.addIngredient(ingredient));
-        List<Ingredient> ingredients = ingredientService.getIngredients();
-        model.addAttribute("ingredients", ingredients);
-        return "ingredients";
-    }
 
-    /**
-     * Supprimer un ingrédient
-     * @param model Le modèle de la vue
-     * @param id
-     * @return La page 'ingredeints.html'
-     */
-    @GetMapping("delete-ingredient/{id}")
-    public String deleteIngredient(Model model,@PathVariable("id") Long id) {
-        Ingredient ingredient = ingredientService.getIngredient(id);
-        ingredientService.delete(ingredient);
-        List<Ingredient> ingredients = ingredientService.getIngredients();
-        model.addAttribute("ingredients", ingredients);
-        return "ingredients";
-    }
 }

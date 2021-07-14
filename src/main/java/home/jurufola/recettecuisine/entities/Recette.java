@@ -195,7 +195,7 @@ public class Recette {
      * @return Répeérentation en chaîne de caractères de la recette
      */
 
-    @Override
+    /*@Override
     public String toString() {
         return "Recette{" +
                 "id=" + id +
@@ -206,6 +206,6 @@ public class Recette {
                 ", description='" + description + '\'' +
                 ", nbLikes=" + nbLikes +
                 '}';
-    }
+    }*/
 
 }

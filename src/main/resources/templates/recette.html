@@ -41,10 +41,10 @@
 <body>
     <div  th:replace="common/layout :: navbar"></div>
     <div class="container my-5">
-        <h4>La liste des recettes</h4>
+        <h4>Recette</h4>
                <div class="card text-center">
                     <div class="card-header">
-                       <h5>Nom de la recette</h5> 
+                       <h5 th:text="${recette.nom}">Nom de la recette</h5> 
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Ingrédients</h5>
@@ -68,20 +68,17 @@
                                 <span id="ingredient4">cannelle</span>
                             </div>
                         </div>
-                        <form action="" class="nouvel-ingredient">
+                        <form action="#" class="nouvel-ingredient" th:action="@{/ajout-ingredient-recette/{id}/{quantite}(id=${recette.id}, quantite=${quantite})}" th:object="${ingredient}" method="post">
                             <div class="form-group">
                                 <label for="ingredient">Nouvel Ingrédient : </label>
-                                <select class="form-control" id="ingredient">
-                                    <option value="1">Ingrédient1</option>
-                                    <option value="2">Ingrédient2</option>
-                                    <option value="3">Ingrédient3</option>
-                                    <option value="4">Ingrédient4</option>
-                                    <option value="5">Ingrédient5</option>
+                                <select class="form-control" id="ingredient" name="ingredient">
+                                    <option th:each="ing : ${ingredients}" th:value="${ing.id}" th:text="${ing.nom}" >Ingrédient1</option>
+                                    
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="quantite">Nom quantite : </label>
-                                <input type="text" class="form-control mb-2" id="quantite">
+                                <input type="text" class="form-control mb-2" id="quantite" name="quantite">
                             </div>
                             <button type="submit" class="btn btn-primary">Ajouter</button>
                         </form>

@@ -117,7 +117,7 @@ public class Ingredient {
                 "id=" + id +
                 ", type='" + type + '\'' +
                 ", nom='" + nom + '\'' +
-                ", recettes=" + recettes +
+                //", recettes=" + recettes +
                 '}';
     }
 }

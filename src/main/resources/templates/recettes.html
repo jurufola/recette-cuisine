@@ -27,6 +27,9 @@
         .card-footer p{
             margin-bottom: 0;
         }
+        li {
+            text-align: start;
+        }
 
     </style>
 </head>
@@ -34,73 +37,34 @@
     <div  th:replace="common/layout :: navbar"></div>
     <div class="container mt-5">
         <div class="row">
-           <div class="col-md-4 mb-3">
+           <div class="col-md-4 mb-3" th:each="recette : ${recettes}">
                <div class="card text-center">
                     <div class="card-header">
-                       <h5>Nom de la recette</h5> 
+                       <h5 th:text="${recette.nom}">Nom de la recette</h5> 
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Liste des ingrédients</h5>
-                        <p class="card-text">Ingrédients: ingrédient 1, ingrédient 2, ......</p>
-                        <a th:href="@{/recette/1}" class="btn btn-primary">Voir la recette</a>
+                        <ul>
+                            <li class="card-text" th:each="ingredient : ${recette.ingredients}" th:text="${ingredient.nom}"></li>
+                        </ul>
+                        <a th:href="@{/recette/{id}(id=${recette.id})}" class="btn btn-primary">Voir la recette</a>
                     </div>
                     <div class="card-footer text-muted d-flex justify-content-between">
                         <p>
-                            cuisson : <span id="cuisson">50 min</span>
+                            cuisson : <span id="cuisson" th:text="${recette.tempsCuisson}">50 min</span>
                         </p>
                         <p>
-                            <a th:href="@{/like/{id}}"><i class="fas fa-heart icon-like"></i></a>
-                            &nbsp;<span id="like">2</span>
+                            <a th:href="@{/like/{id}(id=${recette.id})}"><i class="fas fa-heart icon-like"></i></a>
+                            &nbsp;
+                            <span id="like" th:switch="${recette.nbLikes}">
+                               <span th:case="'0'"></span>
+                               <span th:case="*" th:text="${recette.nbLikes}"></span>
+                            </span>
                         </p>
                         
                     </div>
                 </div>
            </div> 
-           <div class="col-md-4 mb-3">
-               <div class="card text-center">
-                    <div class="card-header">
-                       <h5>Nom de la recette</h5> 
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Liste des ingrédients</h5>
-                        <p class="card-text">Ingrédients: ingrédient 1, ingrédient 2, ......</p>
-                        <a th:href="@{/recette/{id}}" class="btn btn-primary">Voir la recette</a>
-                    </div>
-                    <div class="card-footer text-muted d-flex justify-content-between">
-                        <p>
-                            cuisson : <span id="cuisson">50 min</span>
-                        </p>
-                        <p>
-                            <a th:href="@{/like/{id}}"><i class="fas fa-heart icon-like"></i></a>
-                            &nbsp;<span id="like">2</span>
-                        </p>
-                        
-                    </div>
-                </div>
-           </div> 
-           <div class="col-md-4 mb-3">
-               <div class="card text-center">
-                    <div class="card-header">
-                       <h5>Nom de la recette</h5> 
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Liste des ingrédients</h5>
-                        <p class="card-text">Ingrédients: ingrédient 1, ingrédient 2, ......</p>
-                        <a th:href="@{/recette/{id}}" class="btn btn-primary">Voir la recette</a>
-                    </div>
-                    <div class="card-footer text-muted d-flex justify-content-between">
-                        <p>
-                            cuisson : <span id="cuisson">50 min</span>
-                        </p>
-                        <p>
-                            <a th:href="@{/like/{id}}"><i class="fas fa-heart icon-like"></i></a>
-                            &nbsp;<span id="like">2</span>
-                        </p>
-                        
-                    </div>
-                </div>
-           </div> 
-            
         </div>
         
           </div>

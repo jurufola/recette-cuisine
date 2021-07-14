@@ -91,7 +91,7 @@ public class Categorie {
         return "Categorie{" +
                 "id=" + id +
                 ", nom='" + nom + '\'' +
-                ", recettes=" + recettes +
+                //", recettes=" + recettes +
                 '}';
     }
 }
