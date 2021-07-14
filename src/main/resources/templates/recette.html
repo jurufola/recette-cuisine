@@ -107,7 +107,7 @@
                             <a th:href="@{/delete-recette{id}}"><i class="fas fa-trash icon-delete"></i></a>
                         </p>
                         <p>
-                            <a th:href="@{/like/{id}}"><i class="fas fa-heart icon-like"></i></a>
+                            <a th:href="@{/like/{id}(id=${recette.id})}"><i class="fas fa-heart icon-like"></i></a>
                             &nbsp;
                             <span id="like" th:switch="${recette.nbLikes}">
                                 <span th:case="'0'"></span>
