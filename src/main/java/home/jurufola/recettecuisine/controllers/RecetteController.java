@@ -117,5 +117,14 @@ public class RecetteController {
         return "recettes";
     }
 
+    @GetMapping("like/{id}")
+    public String likeRecette(@PathVariable("id") Long id, Model model) {
+        Recette recette = recetteService.getRecette(id);
+        recette.setNbLikes((recette.getNbLikes()+1));
+        List<Recette> recettes = recetteService.getRecettes();
+        model.addAttribute("recettes", recettes);
+        return "recettes";
+    }
+
 
 }
