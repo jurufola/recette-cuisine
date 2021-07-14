@@ -68,17 +68,19 @@
                                 <span id="ingredient4">cannelle</span>
                             </div>
                         </div>
-                        <form action="#" class="nouvel-ingredient" th:action="@{/ajout-ingredient-recette/{id}/{quantite}(id=${recette.id}, quantite=${quantite})}" th:object="${ingredient}" method="post">
+                        <form action="#" class="nouvel-ingredient" th:action="@{/ajout-ingredient-recette}" th:object="${recetteIngredient}" method="post">
                             <div class="form-group">
+                                
+                                <input type="hidden" id="recette" th:field="*{recette}">
                                 <label for="ingredient">Nouvel Ingrédient : </label>
-                                <select class="form-control" id="ingredient" name="ingredient">
+                                <select class="form-control" id="ingredient" name="ingredient" th:field="*{ingredient}">
                                     <option th:each="ing : ${ingredients}" th:value="${ing.id}" th:text="${ing.nom}" >Ingrédient1</option>
                                     
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="quantite">Nom quantite : </label>
-                                <input type="text" class="form-control mb-2" id="quantite" name="quantite">
+                                <input type="text" class="form-control mb-2" id="quantite" name="quantite" th:field="*{quantite}">
                             </div>
                             <button type="submit" class="btn btn-primary">Ajouter</button>
                         </form>

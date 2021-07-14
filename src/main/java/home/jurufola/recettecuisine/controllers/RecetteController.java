@@ -3,8 +3,10 @@ package home.jurufola.recettecuisine.controllers;
 import home.jurufola.recettecuisine.entities.Categorie;
 import home.jurufola.recettecuisine.entities.Ingredient;
 import home.jurufola.recettecuisine.entities.Recette;
+import home.jurufola.recettecuisine.entities.RecetteIngredient;
 import home.jurufola.recettecuisine.services.CategorieService;
 import home.jurufola.recettecuisine.services.IngredientService;
+import home.jurufola.recettecuisine.services.RecetteIngredientService;
 import home.jurufola.recettecuisine.services.RecetteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +28,8 @@ public class RecetteController {
     CategorieService categorieService; // Injection dépendance CategorieService
     @Autowired
     IngredientService ingredientService; // Injection dépendance ingredientService
+    @Autowired
+    RecetteIngredientService recetteIngredientService; // Injection dépendance ingredientService
     @GetMapping("layout")
     public String getLayout(){
         return "common/layout";
@@ -60,8 +64,13 @@ public class RecetteController {
         List<Ingredient> ingredients = ingredientService.getIngredients();
         model.addAttribute("recette", recette);
         model.addAttribute("ingredients", ingredients);
-        model.addAttribute("ingredient", new Ingredient());
-       // model.addAttribute("quantite", "");
+        RecetteIngredient recetteIngredient = new RecetteIngredient();
+        /*System.out.println("avant  " + recetteIngredient);
+        recetteIngredientService.save(recetteIngredient);
+        System.out.println(recetteIngredient);*/
+        recetteIngredient.setRecette(recette);
+        System.out.println(recetteIngredient);
+        model.addAttribute("recetteIngredient", recetteIngredient);
         return "recette";
     }
 
@@ -92,12 +101,17 @@ public class RecetteController {
         return "recettes";
     }
 
-    @PostMapping("ajout-ingredient-recette/{id}/{quantite}")
-    public String AddIngredientToRecette(@PathVariable("id") Long id,
-                                         @ModelAttribute("ingredient") Ingredient ingredient,
-                                         @PathVariable("quantite") String quantite, Model model) {
-        System.out.println(ingredient);
-        System.out.println("contenu quantite" + quantite);
+    @PostMapping("ajout-ingredient-recette")
+    public String AddIngredientToRecette(
+                                         @ModelAttribute("recetteIngredient") RecetteIngredient recetteIngredient,
+                                         Model model) {
+        System.out.println("Avant" + recetteIngredient);
+        //Recette recette = recetteService.getRecette(id);
+        //recetteIngredient.setRecette(recette);
+        //System.out.println("Après" + recetteIngredient);
+        //recetteService.addRecette(recette);
+        recetteIngredientService.save(recetteIngredient);
+        System.out.println("Après save recetteIngredient" + recetteIngredient.getId());
         List<Recette> recettes = recetteService.getRecettes();
         model.addAttribute("recettes", recettes);
         return "recettes";

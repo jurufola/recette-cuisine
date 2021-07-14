@@ -22,13 +22,13 @@ public class Ingredient {
     @Column(name = "nom")
     private String nom;
 
-    @ManyToMany
+    /*@ManyToMany
     @JoinTable(name = "recette_ingredient",
     joinColumns = {@JoinColumn(name = "ingredient_id")},
     inverseJoinColumns = {@JoinColumn(name = "recette_id")}
     )
     private Set<Recette> recettes = new HashSet<>();
-
+    */
     @OneToMany(mappedBy = "ingredient")
     private Set<RecetteIngredient> recetteIngredients = new HashSet<>();
 
@@ -41,7 +41,7 @@ public class Ingredient {
     public Ingredient(String type, String nom, Set<Recette> recettes) {
         this.type = type;
         this.nom = nom;
-        this.recettes = recettes;
+        //this.recettes = recettes;
     }
 
     /**
@@ -102,25 +102,25 @@ public class Ingredient {
      * Getter recettes
      * @return Les recettes utilisant l'ingrédient
      */
-    public Set<Recette> getRecettes() {
+   /* public Set<Recette> getRecettes() {
         return recettes;
-    }
+    }*/
 
     /**
      * Setter recettes
      * @param recettes Les recettes utilisant l'ingrédient
      */
-    public void setRecettes(Set<Recette> recettes) {
+    /*public void setRecettes(Set<Recette> recettes) {
         this.recettes = recettes;
-    }
+    }*/
 
     /**
      * Ajoute une  recette à la liste des recettes qui utilisent l'ingredient
      * @param recette La recette à rajouter
      */
-    public void addRecette(Recette recette) {
+    /*public void addRecette(Recette recette) {
         this.recettes.add(recette);
-    }
+    }*/
 
     /**
      * Getter recetteIngredients

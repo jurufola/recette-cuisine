@@ -44,9 +44,9 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Liste des ingrédients</h5>
-                        <ul>
+                        <!-- <ul>
                             <li class="card-text" th:each="ingredient : ${recette.ingredients}" th:text="${ingredient.nom}"></li>
-                        </ul>
+                        </ul> -->
                         <a th:href="@{/recette/{id}(id=${recette.id})}" class="btn btn-primary">Voir la recette</a>
                     </div>
                     <div class="card-footer text-muted d-flex justify-content-between">

@@ -24,6 +24,16 @@ public class RecetteIngredient {
 
     private String quantite;
 
+
+    public RecetteIngredient(Recette recette, Ingredient ingredient, String quantite) {
+        this.recette = recette;
+        this.ingredient = ingredient;
+        this.quantite = quantite;
+    }
+
+    public RecetteIngredient() {
+    }
+
     /**
      * Getter id
      * @return L'identifiant de la table pivot
@@ -86,5 +96,15 @@ public class RecetteIngredient {
      */
     public void setQuantite(String quantite) {
         this.quantite = quantite;
+    }
+
+    @Override
+    public String toString() {
+        return "RecetteIngredient{" +
+                "id=" + id +
+                ", recette=" + recette +
+                ", ingredient=" + ingredient +
+                ", quantite='" + quantite + '\'' +
+                '}';
     }
 }

@@ -25,11 +25,11 @@ public class Recette {
 
     private LocalTime tempsCuisson;
 
-    @ManyToMany
+    /*@ManyToMany
     @JoinTable(name = "recette_ingredient",
             joinColumns = {@JoinColumn(name = "recette_id")},
             inverseJoinColumns = {@JoinColumn(name = "ingredient_id")})
-    private Set<Ingredient> ingredients = new HashSet<>();
+    private Set<Ingredient> ingredients = new HashSet<>();*/
 
     @Column(name = "description", length = 1000)
     private String description;
@@ -54,7 +54,7 @@ public class Recette {
         this.categorie = categorie;
         this.typeCuisson = typeCuisson;
         this.tempsCuisson = tempsCuisson;
-        this.ingredients = ingredients;
+        //this.ingredients = ingredients;
         this.description = description;
         this.nbLikes = nbLikes;
     }
@@ -133,17 +133,17 @@ public class Recette {
      * Getter ingredients
      * @return Les ingrédients de la recette
      */
-    public Set<Ingredient> getIngredients() {
+   /* public Set<Ingredient> getIngredients() {
         return ingredients;
-    }
+    }*/
 
     /**
      * Setter ingredients
      * @param ingredients Les ingrédients de la recette
      */
-    public void setIngredients(Set<Ingredient> ingredients) {
+   /* public void setIngredients(Set<Ingredient> ingredients) {
         this.ingredients = ingredients;
-    }
+    }*/
 
     /**
      * Getter description
@@ -213,9 +213,9 @@ public class Recette {
      * Ajout nouvel ingrédient dans la recette
      * @param ingredient L'ingredient
      */
-    public void addIngredient(Ingredient ingredient) {
+    /*public void addIngredient(Ingredient ingredient) {
         this.ingredients.add(ingredient);
-    }
+    }*/
 
     /**
      * Rajout nouvel enregistrement table pivot
@@ -229,17 +229,17 @@ public class Recette {
      * @return Répeérentation en chaîne de caractères de la recette
      */
 
-    /*@Override
+    @Override
     public String toString() {
         return "Recette{" +
                 "id=" + id +
                 ", categorie=" + categorie +
                 ", typeCuisson='" + typeCuisson + '\'' +
                 ", tempsCuisson=" + tempsCuisson +
-                ", ingredients=" + ingredients +
+                //", ingredients=" + ingredients +
                 ", description='" + description + '\'' +
                 ", nbLikes=" + nbLikes +
                 '}';
-    }*/
+    }
 
 }
