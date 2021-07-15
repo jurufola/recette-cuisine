@@ -126,6 +126,15 @@ public class RecetteController {
         model.addAttribute("recettes", recettes);
         return "recettes";
     }
-
+    @PostMapping("recherche")
+    public String getRecettesBySearch(@RequestParam(value = "pattern") String pattern, Model model) {
+        System.out.println(pattern);
+        List<Recette> recettes = recetteService.rechercher(pattern);
+        for (Recette recette : recettes) {
+            System.out.println(recette);
+        }
+        model.addAttribute("recettes", recettes);
+        return "recettes";
+    }
 
 }

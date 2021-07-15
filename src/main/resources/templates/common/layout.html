@@ -60,8 +60,8 @@
                 </li>
 
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="rechercher une recette" aria-label="Search">
+            <form class="form-inline my-2 my-lg-0" action="#" th:action="@{/recherche}" method="POST">
+                <input class="form-control mr-sm-2" type="search" placeholder="rechercher une recette" aria-label="Search" th:name="pattern" >
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
             </form>
         </div>

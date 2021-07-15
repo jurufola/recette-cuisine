@@ -54,4 +54,7 @@ public class RecetteService {
         return "La recette " + recette + " a été supprimée de la base";
     }
 
+    public List<Recette> rechercher(String pattern) {
+        return recetteRepository.findAllByNomLike("%" + pattern + "%");
+    }
 }
